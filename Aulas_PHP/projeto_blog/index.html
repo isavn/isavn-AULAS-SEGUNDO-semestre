@@ -1,7 +1,11 @@
 <?php
-  require_once("helpers/url.php");
-  require_once("data/posts.php");
-  require_once("templates/header.php");
+require_once("helpers/url.php");
+require_once("data/posts.php");
+require_once("templates/header.php");
+><?php
+if(!isset($posts) || empty($posts)) {
+    echo "<h2>Desculpe, nenhum post foi encontrado hoje.</h2>";
+}
 ?>
 
 <div id="main-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
@@ -11,43 +15,33 @@
     </header>
 
     <section id="posts-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        
-        <?php if(!isset($posts) || empty($posts)): ?>
-            <h2 style="grid-column: 1 / -1; text-align: center;">Desculpe, nenhum post foi encontrado hoje.</h2>
-        
-        <?php else: ?>
-            <?php foreach($posts as $post): ?>
-                <div class="post-card" style="border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; background: #fff;">
+        <?php foreach($posts as $post): ?>
+            <div class="post-card" style="border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; background: #fff;">
+                <img src="img/prog-2.jpg" style="width: 100%; height: 200px; object-fit: cover;">
+                
+                <div class="post-content" style="padding: 20px;">
+                    <h2 class="post-title" style="margin-bottom: 15px;">
+                        <a href="?= $BASE_URL ?>post.php?id=?= $post['id'] ?>" style="text-decoration: none; color: #007bff;">
+                            ?= $post['title'] ?
+                        </a>
+                    </h2>
+                    <p class="post-description" style="color: #444; font-size: 0.95rem; margin-bottom: 20px;">
+                        <?= $post['description'] ?>
+                    </p>
                     
-                    <img src="<?= $BASE_URL ?>img/<?= $post['img'] ?>" alt="<?= htmlspecialchars($post['title']) ?>" style="width: 100%; height: 200px; object-fit: cover;">
-                    
-                    <div class="post-content" style="padding: 20px;">
-                        <h2 class="post-title" style="margin-bottom: 15px;">
-                            <a href="<?= $BASE_URL ?>post.php?id=<?= $post['id'] ?>" style="text-decoration: none; color: #007bff;">
-                                <?= htmlspecialchars($post['title']) ?>
+                    <div class="tags-container" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                        <?php foreach($post['tags'] as $tag): ?>
+                            <a href="#" style="background: #333; color: #fff; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; text-decoration: none;">
+                                <?= $tag ?>
                             </a>
-                        </h2>
-                        <p class="post-description" style="color: #444; font-size: 0.95rem; margin-bottom: 20px;">
-                            <?= htmlspecialchars($post['description']) ?>
-                        </p>
-                        
-                        <div class="tags-container" style="display: flex; flex-wrap: wrap; gap: 5px;">
-                            <?php if(isset($post['tags']) && is_array($post['tags'])): ?>
-                                <?php foreach($post['tags'] as $tag): ?>
-                                    <a href="#" style="background: #333; color: #fff; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; text-decoration: none;">
-                                        <?= htmlspecialchars($tag) ?>
-                                    </a>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-
+            </div>
+        <?php endforeach; ?>
     </section>
 </div>
 
 <?php 
-  require_once("templates/footer.php"); 
+require_once("templates/footer.php"); 
 ?>
