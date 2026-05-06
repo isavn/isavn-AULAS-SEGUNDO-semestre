@@ -79,10 +79,6 @@ header {
 .nav-link:hover {
     color: var(--primary-color);
 }
-
-/* ============================================================
-   CONTAINER PRINCIPAL
-   ============================================================ */
 main {
     max-width: 1200px;
     margin: 40px auto;
