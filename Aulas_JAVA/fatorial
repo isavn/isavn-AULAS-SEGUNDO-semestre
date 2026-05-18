@@ -1,0 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package fatorial_qlqr_numero;
+
+// O import deve ficar SEMPRE aqui, fora da classe
+import javax.swing.JOptionPane; 
+
+public class Fatorial_qlqr_numero {
+    
+    // Tudo que o programa vai executar precisa estar DENTRO do método main
+    public static void main(String[] args) {
+        
+        // Pede o número para o usuário
+        String entrada = JOptionPane.showInputDialog(null, "Digite um número para calcular o fatorial:");
+        int numero = Integer.parseInt(entrada);
+        
+        int fatorial = 1;
+        
+        // Laço que calcula o fatorial
+        for (int i = 1; i <= numero; i++) {
+            fatorial = fatorial * i;
+        }
+        
+        // Mostra o resultado
+        JOptionPane.showMessageDialog(
+                null,
+                "O fatorial de " + numero + " é: " + fatorial);
+    } // Fim do método main
+} // Fim da classe
