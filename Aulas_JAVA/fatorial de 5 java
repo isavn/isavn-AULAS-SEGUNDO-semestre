@@ -1,0 +1,18 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package fatorial5;
+import javax.swing.JOptionPane;
+public class Fatorial5 {
+    public static void main(String[] args) {
+
+        int numero = 5;
+        int fatorial = 1;
+        for (int i = 1; i <= numero; i++) {
+            fatorial = fatorial * i;
+        }
+        JOptionPane.showMessageDialog(null,
+                "O fatorial de 5 é: " + fatorial);
+    }
+}
