@@ -1,0 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mercado;
+import javax.swing.JOptionPane;
+public class Mercado {
+    public static void main(String[] args) {
+
+        String[][] mat = new String[4][3];
+        int i;
+        for (i = 0; i < 4; i++) {
+            mat[i][0] = JOptionPane.showInputDialog("Item:");
+            mat[i][1] = JOptionPane.showInputDialog("Descricao:");
+            mat[i][2] = JOptionPane.showInputDialog("Valor:");
+        } 
+        String msg = "=================================\n";
+        msg += " Item | Descrição | Valor\n";
+        msg += "=================================\n";
+        for (i = 0; i < 4; i++) {
+
+            msg = msg + mat[i][0] + " | "
+                      + mat[i][1] + " | "
+                      + mat[i][2] + "\n";
+        }
+        
+          msg += "=================================";
+        JOptionPane.showMessageDialog(null, msg);
+    }
+}   
+
