@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    /*  $i = 1; 
+        /*  $i = 1; 
      $c = "variável teste";
      while ($i<=10){
         echo "loop externo $i <br>";
@@ -15,35 +15,7 @@
         echo "$c<br>"
         while ($j <= 5){
             echo ("loop interno"$j) 
-            echo ($c 2 ++0
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            )
-        }
-     }
-    ?>
+            echo ($c 2 ++0 */
+   ?>
 </body>
 </html>
